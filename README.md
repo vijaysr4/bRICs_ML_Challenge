@@ -14,10 +14,10 @@ Welcome to the bRICs Kaggle Challenge repository! This project contains multiple
 4. **`dimensionality_reduction.py`**: Applies dimensionality reduction techniques to optimize feature sets.
 5. **`lstm_model.py`**: Implements an LSTM-based neural network for sequence modeling.
 6. **`match_time_filtration.py`**: Filters data based on time constraints for analysis.
-7. **`model.py`**: Contains general model training and evaluation utilities.
-8. **`model_split.py`**: Splits data into training, validation, and test sets.
-9. **`shaply_valuespy.py`**: Calculates SHAP values for model interpretability.
-10. **`sliding_window_best_model.py`**: Implements a sliding window approach for feature extraction.
+7. **`model.py`**: Contains general ensemble models.
+8. **`model_split.py`**: Model trained separately for ```PeriodID =< 96``` and ```PeriodID > 96```, assuming events are more likely to occur in the extra time.
+9. **`shaply_valuespy.py`**: Calculates SHAP values for the random forest.
+10. **`sliding_window_best_model.py`**: Implements a sliding window to account for tweet delays.
 11. **`stop_words.txt`**: A list of stop words used for preprocessing.
 12. **`test.py`**: Scripts for running tests and debugging.
 13. **`tweet_preprocess.py`**: Preprocesses tweets for text analysis.
@@ -25,92 +25,86 @@ Welcome to the bRICs Kaggle Challenge repository! This project contains multiple
 
 ---
 
-## Prerequisites
+Prerequisites
 
-1. **Python**: Ensure you have Python 3.8 or higher installed.
-2. **Libraries**: Install required dependencies by running:
+Python: Ensure you have Python 3.8 or higher installed.
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+Libraries: Install required dependencies by running:
 
-3. **Dataset**: Ensure you have the dataset prepared and accessible in the required format.
+pip install -r requirements.txt
 
----
+Dataset: Ensure you have the dataset prepared and accessible in the required format.
 
-## How to Run the Scripts
+Folder Structure:
 
-### 1. **Preprocessing Tweets**
-   Run the preprocessing script to clean and prepare the dataset:
-   
-   ```bash
-   python tweet_preprocess.py
-   ```
+Create a folder challenge_data/train_tweets and place all training CSV files in it.
 
-### 2. **Exploratory Data Analysis**
-   Use the `dimensionality_reduction.py` or `match_time_filtration.py` scripts for data analysis and feature preparation:
+Create a folder challenge_data/eval_tweets and place all test CSV files in it.
 
-   ```bash
-   python dimensionality_reduction.py
-   python match_time_filtration.py
-   ```
+Create a folder Preprocessed_Data to store all vector embeddings and cleaned CSV files.
 
-### 3. **Baseline Model**
-   To train and evaluate a baseline model, execute:
+Create a folder Predictions to save all submission CSV files generated after running the scripts.
 
-   ```bash
-   python baseline.py
-   ```
+How to Run the Scripts
 
-### 4. **Advanced Models**
+1. Preprocessing Tweets
 
-   - **BERT Embedding**:
-     ```bash
-     python bert_embedding.py
-     ```
-   
-   - **LSTM Model**:
-     ```bash
-     python lstm_model.py
-     ```
+Run the preprocessing script to clean and prepare the dataset:
 
-   - **Sliding Window Approach**:
-     ```bash
-     python sliding_window_best_model.py
-     ```
+python tweet_preprocess.py
 
-### 5. **Best Model**
-   The most accurate model can be run independently. Execute:
+2. Exploratory Data Analysis
 
-   ```bash
-   python best_model.py
-   ```
+Use the dimensionality_reduction.py or match_time_filtration.py scripts for data analysis and feature preparation:
 
-   This script automatically handles preprocessing, training, and evaluation, outputting the final results.
+python dimensionality_reduction.py
+python match_time_filtration.py
 
-### 6. **Model Testing**
-   For testing the model on new data:
+3. Baseline Model
 
-   ```bash
-   python test.py
-   ```
+To train and evaluate a baseline model, execute:
 
-### 7. **SHAP Value Analysis**
-   To interpret model predictions using SHAP values, run:
+python baseline.py
 
-   ```bash
-   python shaply_valuespy.py
-   ```
+4. Advanced Models
 
----
+BERT Embedding:
 
-## Notes
+python bert_embedding.py
 
-- Ensure all input file paths are correctly specified within the scripts or passed as arguments.
-- The `best_model.py` script is designed to operate standalone but requires the dataset and dependencies to be correctly set up.
+LSTM Model:
 
----
+python lstm_model.py
 
+Sliding Window Approach:
+
+python sliding_window_best_model.py
+
+5. Best Model
+
+The most accurate model can be run independently. Execute:
+
+python best_model.py
+
+This script automatically handles preprocessing, training, and evaluation, outputting the final results.
+
+6. Model Testing
+
+For testing the model on new data:
+
+python test.py
+
+7. SHAP Value Analysis
+
+To interpret model predictions using SHAP values, run:
+
+python shaply_valuespy.py
+
+Notes
+
+Ensure all input file paths are correctly specified within the scripts or passed as arguments.
+
+The best_model.py script is designed to operate standalone but requires the dataset and dependencies to be correctly set up.
 ## Contribution
 Vijay Venkatesh Murugan - M1 Data AI - IP Paris
 Yufei Zhou - M1 Data AI - IP Paris
