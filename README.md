@@ -2,7 +2,7 @@
 
 # bRICs Kaggle Challenge - CSC 51054 EP
 
-Welcome to the bRICs Kaggle Challenge repository! This project contains multiple Python scripts designed to preprocess, analyze, and model data for the Kaggle challenge. Among these, the `best_model.py` script offers the highest accuracy ```0.74218```, and can be run independently.
+Welcome to the bRICs Kaggle Challenge repository! This project contains multiple Python scripts designed to preprocess, analyze, and model data for the Kaggle challenge. Among these, the `best_model.py` script offers the highest accuracy ```0.74218```, and can be run independently with the necessary preprocessing in the same file.
 
 ---
 
@@ -82,4 +82,46 @@ Welcome to the bRICs Kaggle Challenge repository! This project contains multiple
      ```
 
 ### 5. **Best Model**
-   The most accurate model can be run i
+   The most accurate model can be run independently. Execute:
+
+   ```bash
+   python best_model.py
+   ```
+
+   This script automatically handles preprocessing, training, and evaluation, outputting the final results.
+
+### 6. **Model Testing**
+   For testing the model on new data:
+
+   ```bash
+   python test.py
+   ```
+
+### 7. **SHAP Value Analysis**
+   To interpret model predictions using SHAP values, run:
+
+   ```bash
+   python shaply_valuespy.py
+   ```
+
+---
+
+## Notes
+
+- Ensure all input file paths are correctly specified within the scripts or passed as arguments.
+- The `best_model.py` script is designed to operate standalone but requires the dataset and dependencies to be correctly set up.
+
+---
+
+## Contribution
+
+---
+
+## License
+
+This repository is licensed under [MIT License](LICENSE).
+
+---
+
+For further assistance, contact the repository maintainer or raise an issue in this GitHub repository.
+
