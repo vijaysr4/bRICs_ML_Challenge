@@ -14,7 +14,7 @@ This repository is structured as follows:
 - **`analysis`**: Jupyter notebooks for exploratory data analysis (EDA) and visualization.
 - **`preprocessing`**: Scripts used for cleaning and preparing the dataset for modeling.
 - **`experimental`**: Code for various models and algorithms explored during the challenge.
-- **`submission.py`**: The final script used to generate submission files for Kaggle, designed to run independently.
+- **`submission.py`**: The final script used to generate submission file for Kaggle, designed to run independently.
 
 ### Files and Directories:
 
@@ -42,6 +42,7 @@ experimental/
                                  # assuming that events are more likely to occur in the extra time.
 
 submission.py                    # Final script to generate submission files
+submission.csv                   # Our final submission file
 baseline.py                      # Baseline model for initial comparisons
 requirements.txt                 # Python dependencies required
 stop_words.txt                   # List of stop words for preprocessing
