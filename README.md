@@ -120,9 +120,9 @@ Welcome to the bRICs Kaggle Challenge repository! This project contains multiple
 
 The best_model.py script is designed to operate standalone but requires the dataset and dependencies to be correctly set up.
 ## Contribution
-Vijay Venkatesh Murugan - M1 Data AI - IP Paris
-Yufei Zhou - M1 Data AI - IP Paris
-Stephan - M1 Data AI - IP Paris
+- Vijay Venkatesh Murugan - M1 Data AI - IP Paris
+- Yufei Zhou - M1 Data AI - IP Paris
+- Stephan - M1 Data AI - IP Paris
 ---
 
 ## License
