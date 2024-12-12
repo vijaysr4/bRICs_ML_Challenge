@@ -1,5 +1,3 @@
-## bRICs Kaggle Challenge - CSC 51054 EP
-
 # bRICs Kaggle Challenge - CSC 51054 EP
 
 Welcome to the bRICs Kaggle Challenge repository! This project contains multiple Python scripts designed to preprocess, analyze, and model data for the Kaggle challenge. Among these, the `best_model.py` script offers the highest accuracy ```0.74218```, and can be run independently with the necessary preprocessing in the same file.
@@ -114,7 +112,9 @@ Welcome to the bRICs Kaggle Challenge repository! This project contains multiple
 ---
 
 ## Contribution
-
+Vijay Venkatesh Murugan - M1 Data AI - IP Paris
+Yufei Zhou - M1 Data AI - IP Paris
+Stephan - M1 Data AI - IP Paris
 ---
 
 ## License
