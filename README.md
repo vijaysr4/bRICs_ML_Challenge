@@ -25,84 +25,98 @@ Welcome to the bRICs Kaggle Challenge repository! This project contains multiple
 
 ---
 
-Prerequisites
+## Prerequisites
 
-Python: Ensure you have Python 3.8 or higher installed.
+1. **Python**: Ensure you have Python 3.8 or higher installed.
+2. **Libraries**: Install required dependencies by running:
 
-Libraries: Install required dependencies by running:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-pip install -r requirements.txt
+3. **Dataset**: Ensure you have the dataset prepared and accessible in the required format.
 
-Dataset: Ensure you have the dataset prepared and accessible in the required format.
+4. **Folder Structure**:
+   - Create a folder `challenge_data/train_tweets` and place all training CSV files in it.
+   - Create a folder `challenge_data/eval_tweets` and place all test CSV files in it.
+   - Create a folder `Preprocessed_Data` to store all vector embeddings and cleaned CSV files.
+   - Create a folder `Predictions` to save all submission CSV files generated after running the scripts.
 
-Folder Structure:
+---
 
-Create a folder challenge_data/train_tweets and place all training CSV files in it.
+## How to Run the Scripts
 
-Create a folder challenge_data/eval_tweets and place all test CSV files in it.
+### 1. **Preprocessing Tweets**
+   Run the preprocessing script to clean and prepare the dataset:
+   
+   ```bash
+   python tweet_preprocess.py
+   ```
 
-Create a folder Preprocessed_Data to store all vector embeddings and cleaned CSV files.
+### 2. **Exploratory Data Analysis**
+   Use the `dimensionality_reduction.py` or `match_time_filtration.py` scripts for data analysis and feature preparation:
 
-Create a folder Predictions to save all submission CSV files generated after running the scripts.
+   ```bash
+   python dimensionality_reduction.py
+   python match_time_filtration.py
+   ```
 
-How to Run the Scripts
+### 3. **Baseline Model**
+   To train and evaluate a baseline model, execute:
 
-1. Preprocessing Tweets
+   ```bash
+   python baseline.py
+   ```
 
-Run the preprocessing script to clean and prepare the dataset:
+### 4. **Advanced Models**
 
-python tweet_preprocess.py
+   - **BERT Embedding**:
+     ```bash
+     python bert_embedding.py
+     ```
+   
+   - **LSTM Model**:
+     ```bash
+     python lstm_model.py
+     ```
 
-2. Exploratory Data Analysis
+   - **Sliding Window Approach**:
+     ```bash
+     python sliding_window_best_model.py
+     ```
 
-Use the dimensionality_reduction.py or match_time_filtration.py scripts for data analysis and feature preparation:
+### 5. **Best Model**
+   The most accurate model can be run independently. Execute:
 
-python dimensionality_reduction.py
-python match_time_filtration.py
+   ```bash
+   python best_model.py
+   ```
 
-3. Baseline Model
+   This script automatically handles preprocessing, training, and evaluation, outputting the final results.
 
-To train and evaluate a baseline model, execute:
+### 6. **Model Testing**
+   For testing the model on new data:
 
-python baseline.py
+   ```bash
+   python test.py
+   ```
 
-4. Advanced Models
+### 7. **SHAP Value Analysis**
+   To interpret model predictions using SHAP values, run:
 
-BERT Embedding:
+   ```bash
+   python shaply_valuespy.py
+   ```
 
-python bert_embedding.py
+---
 
-LSTM Model:
+## Notes
 
-python lstm_model.py
+- Ensure all input file paths are correctly specified within the scripts or passed as arguments.
+- The `best_model.py` script is designed to operate standalone but requires the dataset and dependencies to be correctly set up.
 
-Sliding Window Approach:
+---
 
-python sliding_window_best_model.py
-
-5. Best Model
-
-The most accurate model can be run independently. Execute:
-
-python best_model.py
-
-This script automatically handles preprocessing, training, and evaluation, outputting the final results.
-
-6. Model Testing
-
-For testing the model on new data:
-
-python test.py
-
-7. SHAP Value Analysis
-
-To interpret model predictions using SHAP values, run:
-
-python shaply_valuespy.py
-
-Notes
-
-Ensure all input file paths are correctly specified within the scripts or passed as arguments.
 
 The best_model.py script is designed to operate standalone but requires the dataset and dependencies to be correctly set up.
 ## Contribution
