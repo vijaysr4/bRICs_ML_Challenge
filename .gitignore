@@ -1,0 +1,11 @@
+# Challenge Data
+challenge_data/*
+
+# Preprocesses Data 
+Preprocessed_Data/*
+
+# Predictions
+Predictions/*
+
+# CatBoost Info
+catboost_info/*
