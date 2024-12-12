@@ -24,6 +24,8 @@ challenge_data/
 ├── eval_tweets/                 # Folder containing evaluation/test CSV files
 
 analysis/
+├── Cut_dataset_and_PCA.ipynb    # This file contains experiments on excluding penalty shootout data and applying PCA to evaluate their impact on model performance.
+├── EDA_and_Feature_Engineering  # This file includes initial EDA with visualizations and analysis of data class differences, focusing on keyword distribution.
 ├── event_count.ipynb            # Jupyter notebook for analyzing EventType vs Tweet Count
 
 preprocessing/
@@ -38,8 +40,7 @@ experimental/
 ├── lstm_model.py                # Implements an LSTM-based neural network
 ├── roberta.py                   # Implements a RoBERTa-based neural network
 ├── sliding_window.py            # Sliding window approach for handling tweet delays
-├── split_periods.py             # Model trained separately for PeriodID =< 96 and PeriodID > 96
-                                 # assuming that events are more likely to occur in the extra time.
+├── split_periods.py             # Model trained separately for PeriodID =< 96 and PeriodID > 96 assuming that events are more likely to occur in the extra time.
 
 submission.py                    # Final script to generate submission files
 submission.csv                   # Our final submission file
