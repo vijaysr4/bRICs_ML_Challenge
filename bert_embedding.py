@@ -58,7 +58,7 @@ def preprocess_text(text):
 
 # Load and preprocess the training data
 li = []
-train_dir = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/train_tweets"
+train_dir = "challenge_data/train_tweets"
 for filename in os.listdir(train_dir):
     df = pd.read_csv(os.path.join(train_dir, filename))
     li.append(df)
@@ -71,12 +71,12 @@ tweet_df = pd.DataFrame(tweet_vectors)
 
 # Combine embeddings with the original dataframe
 period_features = pd.concat([df, tweet_df], axis=1)
-period_features.to_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/Preprocessed_Data/BERT_preprocessed_tweets.csv", index=False)
+period_features.to_csv("Preprocessed_Data/BERT_preprocessed_tweets.csv", index=False)
 
 # Group features and prepare for classification
 period_features = period_features.drop(columns=['Timestamp', 'Tweet'])
 period_features = period_features.groupby(['MatchID', 'PeriodID', 'ID']).mean().reset_index()
-period_features.to_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/Preprocessed_Data/BERT_vectors.csv", index=False)
+period_features.to_csv("Preprocessed_Data/BERT_vectors.csv", index=False)
 
 '''
 X = period_features.drop(columns=['EventType', 'MatchID', 'PeriodID', 'ID']).values
@@ -97,7 +97,7 @@ dummy_clf = DummyClassifier(strategy="most_frequent").fit(X, y)
 # Predictions for Kaggle submission
 predictions = []
 dummy_predictions = []
-eval_dir = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/eval_tweets"
+eval_dir = "challenge_data/eval_tweets"
 for fname in os.listdir(eval_dir):
     print(f"Processing file: {fname}")
     val_df = pd.read_csv(os.path.join(eval_dir, fname))
@@ -122,8 +122,8 @@ for fname in os.listdir(eval_dir):
 
 # Save predictions
 pred_df = pd.concat(predictions)
-pred_df.to_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Predictions/logistic_predictions.csv", index=False)
+pred_df.to_csv("Predictions/logistic_predictions.csv", index=False)
 
 dummy_pred_df = pd.concat(dummy_predictions)
-dummy_pred_df.to_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Predictions/dummy_predictions.csv", index=False)
+dummy_pred_df.to_csv("Predictions/dummy_predictions.csv", index=False)
 '''

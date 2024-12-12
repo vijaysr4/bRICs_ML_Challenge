@@ -48,9 +48,9 @@ def preprocess_text(text):
 
 
 '''
-df = pd.read_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/preprocessed_tweets.csv")
+df = pd.read_csv("Preprocessed_Data/preprocessed_tweets.csv")
 df = df.sample(5000, random_state=42)
-df.to_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/preprocessed_tweets_sample.csv", index = False)
+df.to_csv("Preprocessed_Data/preprocessed_tweets_sample.csv", index = False)
 
 
 # Drop the columns that are not useful anymore
@@ -59,10 +59,10 @@ df = df.drop(columns=['Timestamp', 'Tweet'])
 df = df.groupby(['MatchID', 'PeriodID', 'ID']).mean().reset_index()
 
 # Save the sampled dataframe to a new CSV file
-df.to_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/vectors.csv", index=False)
+df.to_csv("Preprocessed_Data/vectors.csv", index=False)
 '''
 
-df = pd.read_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/vectors.csv")
+df = pd.read_csv("Preprocessed_Data/vectors.csv")
 
 df = df.drop(columns=['Unnamed: 0'])
 
@@ -106,9 +106,9 @@ cf_cb_full.fit(X, y)
 predictions = []
 vector_size = 200  
 
-for fname in os.listdir("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/eval_tweets"):
+for fname in os.listdir("challenge_data/eval_tweets"):
     print('started')
-    val_df = pd.read_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/eval_tweets/" + fname)
+    val_df = pd.read_csv("challenge_data/eval_tweets/" + fname)
     val_df['Tweet'] = val_df['Tweet'].apply(preprocess_text)
 
     tweet_vectors = np.vstack([get_avg_embedding(tweet, embeddings_model, vector_size) for tweet in val_df['Tweet']])
@@ -135,4 +135,4 @@ for fname in os.listdir("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_
     
 
 pred_df = pd.concat(predictions)
-pred_df.to_csv('D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Predictions/GBC_predictions.csv', index=False)
+pred_df.to_csv('Predictions/GBC_predictions.csv', index=False)

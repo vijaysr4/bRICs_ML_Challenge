@@ -112,7 +112,7 @@ lstm_clf_wrapped = KerasClassifierWrapper(
 )
 
 
-train_df = pd.read_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Train_fasttext.csv")
+train_df = pd.read_csv("Preprocessed_Data/Train_fasttext.csv")
 
 X = train_df.drop(columns=['EventType', 'MatchID', 'PeriodID', 'ID']).values
 y = train_df['EventType'].values.astype(int)
@@ -183,7 +183,7 @@ print(f'Validation Accuracy: {val_accuracy:.4f}')
 
 predictions = []
 
-test_df = pd.read_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Test_fasttext.csv")
+test_df = pd.read_csv("Preprocessed_Data/Test_fasttext.csv")
 X_eval = test_df.drop(columns=['MatchID', 'PeriodID', 'ID']).values
 
 #isomap_X_eval = isomap_reduction(X_eval, 120)

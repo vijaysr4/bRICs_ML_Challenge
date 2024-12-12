@@ -94,7 +94,7 @@ def sp_ss_preprocess_and_save_embeddings_with_preprocess_class(df: pd.DataFrame,
 
 train_li = []
 
-train_path = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/train_tweets"
+train_path = "challenge_data/train_tweets"
 # Read all training files and concatenate them into one dataframe
 for filename in os.listdir(train_path):
     file_path = os.path.join(train_path, filename).replace("\\", "/")
@@ -118,7 +118,7 @@ sp_ss_preprocess_and_save_embeddings(
     df1, 
     embeddings_model, 
     vector_size, 
-    "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/SP_SS_df1_preprocessed_tweets_96.csv"
+    "Preprocessed_Data/SP_SS_df1_preprocessed_tweets_96.csv"
 )
 
 # Process and save df2
@@ -126,12 +126,12 @@ sp_ss_preprocess_and_save_embeddings(
     df2, 
     embeddings_model, 
     vector_size, 
-    "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Sp_SS_df2_preprocessed_tweets_more_96.csv"
+    "Preprocessed_Data/Sp_SS_df2_preprocessed_tweets_more_96.csv"
 )
 
 test_li = []
 
-train_path = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/eval_tweets"
+train_path = "challenge_data/eval_tweets"
 # Read all training files and concatenate them into one dataframe
 for filename in os.listdir(train_path):
     file_path = os.path.join(train_path, filename).replace("\\", "/")
@@ -155,7 +155,7 @@ sp_ss_preprocess_and_save_embeddings_with_preprocess_class(
     df1, 
     embeddings_model, 
     vector_size, 
-    "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Test_SP_SS_df1_preprocessed_tweets_96.csv"
+    "Preprocessed_Data/Test_SP_SS_df1_preprocessed_tweets_96.csv"
 )
 
 # Process and save df2
@@ -163,5 +163,5 @@ sp_ss_preprocess_and_save_embeddings_with_preprocess_class(
     df2, 
     embeddings_model, 
     vector_size, 
-    "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Test_Sp_SS_df2_preprocessed_tweets_more_96.csv"
+    "Preprocessed_Data/Test_Sp_SS_df2_preprocessed_tweets_more_96.csv"
 )

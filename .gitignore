@@ -4,7 +4,7 @@ challenge_data/*
 # Preprocesses Data 
 Preprocessed_Data/*
 
-# Predictions
+# Predictions csv
 Predictions/*
 
 # CatBoost Info

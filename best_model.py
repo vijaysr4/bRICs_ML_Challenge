@@ -30,19 +30,19 @@ stopwords_list = sorted(stopwords_list)
 stemmer = PorterStemmer()
 
 
-def contains_url(tweet):
+def contains_url(tweet: str) -> int:
     return len(re.findall(r"http[s]?\S+", tweet)) != 0
 
 
-def is_retweet(tweet):
+def is_retweet(tweet: str) -> int:
     return len(re.findall(r"rt @?[a-zA-Z0-9_]+:? .*", tweet)) != 0
 
 
-def contains_username(tweet):
+def contains_username(tweet: str) -> int:
     return '@' in tweet
 
 
-def preprocess_tweet(tweet):
+def preprocess_tweet(tweet: str) -> str:
     tweet = tweet.lower().strip()
 
     if contains_url(tweet):
@@ -78,7 +78,7 @@ def preprocess_tweet(tweet):
     return ' '.join(words)
 
 
-def get_avg_embedding(tweet, model, vector_size=200):
+def get_avg_embedding(tweet: str, model, vector_size: int) -> float:
     words = tweet.split()
     word_vectors = [model[word] for word in words if word in model]
     if not word_vectors:
@@ -96,6 +96,8 @@ train_df['Tweet'] = train_df['Tweet'].apply(preprocess_tweet)
 train_df = train_df[train_df['Tweet'].notna()].copy()
 train_df = train_df.reset_index(drop=True)
 
+
+# mention the vector size
 vector_size = 200
 tweet_vectors = np.vstack([get_avg_embedding(tweet, embeddings_model, vector_size) for tweet in train_df['Tweet']])
 tweet_df = pd.DataFrame(tweet_vectors)
@@ -106,11 +108,14 @@ period_features = period_features.drop(columns=['Timestamp', 'Tweet'])
 
 period_features = period_features.groupby(['MatchID', 'PeriodID', 'ID']).median().reset_index()
 
+# Extract Features and Target
 X = period_features.drop(columns=['EventType', 'MatchID', 'PeriodID', 'ID']).values
 y = period_features['EventType'].values.astype(int)
 
+# Split into Train and Test
 X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=24, stratify=y)
 
+# Models
 logistic_clf = LogisticRegression(
     penalty='l2',
     C=1.0,

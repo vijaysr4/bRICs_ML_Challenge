@@ -322,13 +322,13 @@ def process_tweets_add_features(data_dir: pd.DataFrame, embedding_func, embeddin
 
 '''
 fasttext_train_features = process_tweets(
-     data_dir="D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/train_tweets",
+     data_dir="challenge_data/train_tweets",
      embedding_func=get_avg_embedding_fasttext,  # or get_avg_embedding_GloVe
      embeddings_model=fasttext_model,            # or glove_model
      vector_size=300,
      preprocess_func=preprocess_tweet)
 
-fasttext_train_features.to_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Train_fasttext.csv", index=False)
+fasttext_train_features.to_csv("Preprocessed_Data/Train_fasttext.csv", index=False)
 
 fasttext_test_features = process_tweets(
      data_dir="D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/eval_tweets",
@@ -337,48 +337,48 @@ fasttext_test_features = process_tweets(
      vector_size=300,
      preprocess_func=preprocess_tweet)
 
-fasttext_test_features.to_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Test_fasttext.csv", index=False)
+fasttext_test_features.to_csv("Preprocessed_Data/Test_fasttext.csv", index=False)
 '''
 
 # GloVe 200
 glove_train_features = process_tweets_add_features(
-     data_dir="D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/train_tweets",
+     data_dir="challenge_data/train_tweets",
      embedding_func=get_avg_embedding_GloVe,  # or get_avg_embedding_GloVe
      embeddings_model=embeddings_model,            # or glove_model
      vector_size=200,
      preprocess_func=preprocess_tweet)
 
-glove_train_features.to_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Train_glove_200_extra_features.csv", index=False)
+glove_train_features.to_csv("Preprocessed_Data/Train_glove_200_extra_features.csv", index=False)
 
 glove_test_features = process_tweets_add_features(
-     data_dir="D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/eval_tweets",
+     data_dir="challenge_data/eval_tweets",
      embedding_func=get_avg_embedding_GloVe,  # or get_avg_embedding_GloVe
      embeddings_model=embeddings_model,            # or glove_model
      vector_size=200,
      preprocess_func=preprocess_tweet)
 
-glove_test_features.to_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Test_glove200_extra_features.csv", index=False)
+glove_test_features.to_csv("Preprocessed_Data/Test_glove200_extra_features.csv", index=False)
 
 '''
 gow_model = GraphOfWordsModel(window_size=2, vector_size=200)
 
 gow_train_features = process_tweets(
-    data_dir="D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/train_tweets",
+    data_dir="challenge_data/train_tweets",
     embedding_func=get_avg_embedding_graphofwords,
     embeddings_model=gow_model,  # Your initialized Graph-of-Words model
     vector_size=200,
     preprocess_func=preprocess_tweet
 )
 
-gow_train_features.to_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Train_gow_300.csv", index=False)
+gow_train_features.to_csv("Preprocessed_Data/Train_gow_300.csv", index=False)
 
 gow_test_features = process_tweets(
-    data_dir="D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/eval_tweets",
+    data_dir="challenge_data/eval_tweets",
     embedding_func=get_avg_embedding_graphofwords,
     embeddings_model=gow_model,  # Your initialized Graph-of-Words model
     vector_size=200,
     preprocess_func=preprocess_tweet
 )
 
-gow_test_features.to_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Test_gow_300.csv", index=False)
+gow_test_features.to_csv("Preprocessed_Data/Test_gow_300.csv", index=False)
 '''

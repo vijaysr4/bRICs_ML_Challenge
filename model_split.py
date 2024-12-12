@@ -96,11 +96,11 @@ def evaluate_and_predict(eval_path: str, models, vector_size=200) -> list:
 
 
 
-df1_SPSS_path = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/SP_SS_df1_preprocessed_tweets_96.csv"
-df2_SPSS_path = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Sp_SS_df2_preprocessed_tweets_more_96.csv"
+df1_SPSS_path = "Preprocessed_Data/SP_SS_df1_preprocessed_tweets_96.csv"
+df2_SPSS_path = "Preprocessed_Data/Sp_SS_df2_preprocessed_tweets_more_96.csv"
 
-df1_SPSS_vec_path = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Sp_SS__df1_vectors_96.csv"
-df2_SPSS_vec_path = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Sp_SS__df2_vectors_more_96.csv"
+df1_SPSS_vec_path = "Preprocessed_Data/Sp_SS__df1_vectors_96.csv"
+df2_SPSS_vec_path = "Preprocessed_Data/Sp_SS__df2_vectors_more_96.csv"
 
 
 df1_SPSS= pd.read_csv(df1_SPSS_path)
@@ -115,11 +115,11 @@ save_vectors(df2_SPSS, df2_SPSS_vec_path)
 
 
 
-test_df1_path = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Test_SP_SS_df1_preprocessed_tweets_96.csv"
-test_df2_path = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Test_Sp_SS_df2_preprocessed_tweets_more_96.csv"
+test_df1_path = "Preprocessed_Data/Test_SP_SS_df1_preprocessed_tweets_96.csv"
+test_df2_path = "Preprocessed_Data/Test_Sp_SS_df2_preprocessed_tweets_more_96.csv"
 
-test_df1_vec_path = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Test_Sp_SS_df1_vectors_96.csv"
-test_df2_vec_path = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Test_Sp_SS_df2_vectors_more_96.csv"
+test_df1_vec_path = "Preprocessed_Data/Test_Sp_SS_df1_vectors_96.csv"
+test_df2_vec_path = "Preprocessed_Data/Test_Sp_SS_df2_vectors_more_96.csv"
 
 
 test_df1 = pd.read_csv(test_df1_path)
@@ -128,11 +128,11 @@ save_vectors(test_df1, test_df1_vec_path)
 test_df2 = pd.read_csv(test_df2_path)
 save_vectors(test_df2, test_df2_vec_path)
 
-#df1_path = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/df1_preprocessed_tweets_96.csv"
-#df2_path = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/df2_preprocessed_tweets_more_96.csv"
+#df1_path = "Preprocessed_Data/df1_preprocessed_tweets_96.csv"
+#df2_path = "Preprocessed_Data/df2_preprocessed_tweets_more_96.csv"
 
-#df1_vec_path = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/df1_vectors_96.csv"
-#df2_vec_path = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/df2_vectors_more_96.csv"
+#df1_vec_path = "Preprocessed_Data/df1_vectors_96.csv"
+#df2_vec_path = "Preprocessed_Data/df2_vectors_more_96.csv"
 
 #df1 = pd.read_csv(df1_path)
 #save_vectors(df1, df1_vec_path)
@@ -153,8 +153,8 @@ print("Training models for df2...")
 cf_gb2, cf_xgb2, cf_cb2 = train_models(df2)
 
 # Paths for precomputed vector CSVs
-test_df1_vec_path = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Test_Sp_SS_df1_vectors_96.csv"
-test_df2_vec_path = "D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Preprocessed_Data/Test_Sp_SS_df2_vectors_more_96.csv"
+test_df1_vec_path = "Preprocessed_Data/Test_Sp_SS_df1_vectors_96.csv"
+test_df2_vec_path = "Preprocessed_Data/Test_Sp_SS_df2_vectors_more_96.csv"
 
 # Predictions for df1 and df2
 print("Evaluating df1...")
@@ -165,6 +165,6 @@ df2_predictions = evaluate_and_predict(test_df2_vec_path, (cf_gb2, cf_xgb2, cf_c
 
 # Combine predictions and save to CSV
 final_predictions = pd.concat([df1_predictions, df2_predictions]).sort_values('ID')
-final_predictions.to_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Predictions/SS_SP_96_split_3model_average_predictions.csv", index=False)
+final_predictions.to_csv("Predictions/SS_SP_96_split_3model_average_predictions.csv", index=False)
 
 print("Final predictions saved.")
