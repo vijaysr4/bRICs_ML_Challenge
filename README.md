@@ -107,5 +107,3 @@ To run other models or scripts, execute the desired Python file:
 - Vijay Venkatesh Murugan - M1 Data AI - IP Paris
 - Yufei Zhou - M1 Data AI - IP Paris
 - Stephan - M1 Data AI - IP Paris
-
----
