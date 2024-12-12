@@ -10,13 +10,13 @@ from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
-'''
+
 # Download some NLP models for processing, optional
 nltk.download('stopwords')
 nltk.download('wordnet')
 # Load GloVe model with Gensim's API
 embeddings_model = api.load("glove-twitter-200")  # 200-dimensional GloVe embeddings
-'''
+
 
 # Function to compute the average word vector for a tweet
 def get_avg_embedding(tweet, model, vector_size=200):
@@ -45,17 +45,17 @@ def preprocess_text(text):
     words = [lemmatizer.lemmatize(word) for word in words]
     return ' '.join(words)
 
-'''
+
 # Read all training files and concatenate them into one dataframe
 li = []
-for filename in os.listdir("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/train_tweets"):
+for filename in os.listdir("challenge_data/train_tweets"):
     df = pd.read_csv("train_tweets/" + filename)
     li.append(df)
 df = pd.concat(li, ignore_index=True)
 
 # Apply preprocessing to each tweet
 df['Tweet'] = df['Tweet'].apply(preprocess_text)
-df.to_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/train_tweet.csv")
+
 # Apply preprocessing to each tweet and obtain vectors
 vector_size = 200  # Adjust based on the chosen GloVe model
 tweet_vectors = np.vstack([get_avg_embedding(tweet, embeddings_model, vector_size) for tweet in df['Tweet']])
@@ -63,7 +63,6 @@ tweet_df = pd.DataFrame(tweet_vectors)
 
 # Attach the vectors into the original dataframe
 period_features = pd.concat([df, tweet_df], axis=1)
-period_features.to_csv("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/Preprocessed_Data/preprocessed_tweets.csv")
 # Drop the columns that are not useful anymore
 period_features = period_features.drop(columns=['Timestamp', 'Tweet'])
 # Group the tweets into their corresponding periods. This way we generate an average embedding vector for each period
@@ -97,8 +96,7 @@ dummy_predictions = []
 # We read each file separately, we preprocess the tweets and then use the classifier to predict the labels.
 # Finally, we concatenate all predictions into a list that will eventually be concatenated and exported
 # to be submitted on Kaggle.
-for fname in os.listdir("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/eval_tweets"):
-    print('started')
+for fname in os.listdir("challenge_data/eval_tweets"):
     val_df = pd.read_csv("eval_tweets/" + fname)
     val_df['Tweet'] = val_df['Tweet'].apply(preprocess_text)
 
@@ -118,12 +116,10 @@ for fname in os.listdir("D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_
 
     predictions.append(period_features[['ID', 'EventType']])
     dummy_predictions.append(period_features[['ID', 'DummyEventType']])
-    
 
 pred_df = pd.concat(predictions)
-pred_df.to_csv('D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/Predictions/logistic_predictions.csv', index=False)
+pred_df.to_csv('logistic_predictions.csv', index=False)
 
 pred_df = pd.concat(dummy_predictions)
-pred_df.to_csv('D:/M1_DataAI/P1/Intro_ML_DL/Kaggle_challenge/challenge_data/Predictions/dummy_predictions.csv', index=False)
+pred_df.to_csv('dummy_predictions.csv', index=False)
 
-'''

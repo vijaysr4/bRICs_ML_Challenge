@@ -4,7 +4,7 @@ import gensim.downloader as api
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import GradientBoostingClassifier
 from xgboost import XGBClassifier
-from catboost import CatBoostClassifier
+from experimental.catboost import CatBoostClassifier
 import os
 
 from baseline import get_avg_embedding, preprocess_text

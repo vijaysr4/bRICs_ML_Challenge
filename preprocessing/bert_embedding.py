@@ -58,7 +58,7 @@ def preprocess_text(text):
 
 # Load and preprocess the training data
 li = []
-train_dir = "challenge_data/train_tweets"
+train_dir = "../challenge_data/train_tweets"
 for filename in os.listdir(train_dir):
     df = pd.read_csv(os.path.join(train_dir, filename))
     li.append(df)

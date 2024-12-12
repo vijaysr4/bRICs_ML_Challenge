@@ -94,7 +94,7 @@ def sp_ss_preprocess_and_save_embeddings_with_preprocess_class(df: pd.DataFrame,
 
 train_li = []
 
-train_path = "challenge_data/train_tweets"
+train_path = "../challenge_data/train_tweets"
 # Read all training files and concatenate them into one dataframe
 for filename in os.listdir(train_path):
     file_path = os.path.join(train_path, filename).replace("\\", "/")
@@ -131,7 +131,7 @@ sp_ss_preprocess_and_save_embeddings(
 
 test_li = []
 
-train_path = "challenge_data/eval_tweets"
+train_path = "../challenge_data/eval_tweets"
 # Read all training files and concatenate them into one dataframe
 for filename in os.listdir(train_path):
     file_path = os.path.join(train_path, filename).replace("\\", "/")

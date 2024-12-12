@@ -106,7 +106,7 @@ cf_cb_full.fit(X, y)
 predictions = []
 vector_size = 200  
 
-for fname in os.listdir("challenge_data/eval_tweets"):
+for fname in os.listdir("../challenge_data/eval_tweets"):
     print('started')
     val_df = pd.read_csv("challenge_data/eval_tweets/" + fname)
     val_df['Tweet'] = val_df['Tweet'].apply(preprocess_text)

@@ -17,7 +17,7 @@ import lightgbm as lgb
 from catboost import CatBoostClassifier
 
 
-from dimensionality_reduction import isomap_reduction, tsne_reduction
+from data.dimensionality_reduction import isomap_reduction, tsne_reduction
 from tensorflow.keras.regularizers import l2
 
 from sklearn.base import BaseEstimator, ClassifierMixin

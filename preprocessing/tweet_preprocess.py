@@ -33,7 +33,7 @@ else:
 vector_size = 200
 
 stopwords_list = []
-with open("stop_words.txt", 'r', encoding='utf-8') as f:
+with open("../stop_words.txt", 'r', encoding='utf-8') as f:
     for line in f:
         w = line.strip()
         if w:
@@ -342,7 +342,7 @@ fasttext_test_features.to_csv("Preprocessed_Data/Test_fasttext.csv", index=False
 
 # GloVe 200
 glove_train_features = process_tweets_add_features(
-     data_dir="challenge_data/train_tweets",
+     data_dir="../challenge_data/train_tweets",
      embedding_func=get_avg_embedding_GloVe,  # or get_avg_embedding_GloVe
      embeddings_model=embeddings_model,            # or glove_model
      vector_size=200,
@@ -351,7 +351,7 @@ glove_train_features = process_tweets_add_features(
 glove_train_features.to_csv("Preprocessed_Data/Train_glove_200_extra_features.csv", index=False)
 
 glove_test_features = process_tweets_add_features(
-     data_dir="challenge_data/eval_tweets",
+     data_dir="../challenge_data/eval_tweets",
      embedding_func=get_avg_embedding_GloVe,  # or get_avg_embedding_GloVe
      embeddings_model=embeddings_model,            # or glove_model
      vector_size=200,
